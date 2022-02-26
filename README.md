@@ -1,6 +1,6 @@
 <p align="center">
   <img width="400" src="assets/screenshot.png">
-  <h3 align="center">gh-box</h3>
+  <h3 align="center">gist-box</h3>
   <p align="center">Update a pinned gist to contain your GitHub profile data</p>
 </p>
 
