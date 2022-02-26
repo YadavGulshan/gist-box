@@ -29,7 +29,31 @@ async function main() {
   const isPrivate = considerPrivate === "true";
   const userDataRaw = await octokit.users.getAuthenticated();
   const userData = userDataRaw.data;
-  console.log(`${userData.login} (${userData.name})`);
+  const contributionData = await axios(
+    `https://github-contributions.now.sh/api/v1/${userData.login}`
+  );
+  const pkDataRaw = await octokit.users.listPublicKeysForUser({
+    username: userData.login,
+  });
+
+  arr.push(userData.disk_usage);
+  // If arr is undefined, then the user has no disk usage
+  if (arr[0] !== undefined) {
+    const diskUsage = await formatBytes({
+      bytes: arr[0],
+      decimals: 2,
+    });
+    console.log(`Disk Usage: ${diskUsage}`);
+  }
+
+  // Append the public repos
+  arr.push(userData.public_repos);
+
+  isPrivate
+    ? userData.owned_private_repos != null
+      ? arr.push(userData.owned_private_repos)
+      : arr.push(0)
+    : arr.push(userData.public_repos);
 }
 
 (async () => {
