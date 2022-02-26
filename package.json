@@ -1,0 +1,10 @@
+{
+  "name": "gist-box",
+  "version": "1.0.0",
+  "description": "Update a gist to contain your github data",
+  "main": "index.js",
+  "repository": "github.com/yadavgulshan/gist-box",
+  "author": "Gulshan Yadav",
+  "license": "MIT",
+  "private": false
+}
