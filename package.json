@@ -6,5 +6,8 @@
   "repository": "github.com/yadavgulshan/gist-box",
   "author": "Gulshan Yadav",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "axios": "^0.26.0"
+  }
 }
